@@ -95,13 +95,12 @@ Host kaggle-titanic
 
 ## Docker
 
-1. ssh でログインした後、Git のユーザー情報を設定します。
-2. このリポジトリをクローンします。
-3. 既に Docker, Docker Compose がインストールされているので、以下のコマンドを実行して Kaggle コンテナを起動します。
+1. . このリポジトリをクローンします。
+2. 既に Docker, Docker Compose がインストールされているので、以下のコマンドを実行して Kaggle コンテナを起動します。
 
 ```shell
 cd docker
 docker-compose up -d
 ```
 
-4. VSCode から Kaggle コンテナに接続すると、Python スクリプトの実行や Jupyter Notebook の使用が可能です。
+3. VSCode から Kaggle コンテナに接続すると、Python スクリプトの実行や Jupyter Notebook の使用が可能です。
