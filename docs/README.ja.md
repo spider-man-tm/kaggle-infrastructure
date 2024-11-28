@@ -2,7 +2,7 @@
 
 [English](../README.md) | [日本語](README.ja.md)
 
-Document: [Blog]()
+Document: [Blog](https://zenn.dev/takayoshi/articles/002-kaggle-iac)
 
 <br />
 

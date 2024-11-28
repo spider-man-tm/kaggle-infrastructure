@@ -91,13 +91,14 @@ Host kaggle-titanic
 
 <br />
 
-## Devcontainer
+## Docker
 
 1. Clone this repository.
 2. Since Docker and Docker Compose are already installed, run the following commands to start the Kaggle container:
 
 ```shell
-docker exec -it kaggle-cpu bash
+cd docker
+docker-compose up -d
 ```
 
 3. Once connected to the Kaggle container from VSCode, you can execute Python scripts and use Jupyter Notebook.
