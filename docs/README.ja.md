@@ -95,7 +95,7 @@ Host kaggle-titanic
 
 ## Docker
 
-1. . このリポジトリをクローンします。
+1. このリポジトリをクローンします。
 2. 既に Docker, Docker Compose がインストールされているので、以下のコマンドを実行して Kaggle コンテナを起動します。
 
 ```shell

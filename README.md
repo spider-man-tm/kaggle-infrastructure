@@ -91,6 +91,8 @@ Host kaggle-titanic
 
 <br />
 
+<<<<<<< HEAD
+
 ## Docker
 
 1. Clone this repository.
