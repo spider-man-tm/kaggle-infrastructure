@@ -79,4 +79,3 @@ variable "location" {
   description = "GCS Location"
   type        = string
 }
-

@@ -16,7 +16,8 @@ cd setup-gcp-project
 make setup-gcp-project \
     GCP_PROJECT_ID=<your_gcp_project_id> \
     BILLING_ACCOUNT_ID=<your_billing_account_id> \
-    KAGGLE_KEY=<your_kaggle_api_key>
+    KAGGLE_KEY=<your_kaggle_api_key> \
+    TF_STATE_BUCKET_NAME=<your_tf_state_bucket_name>
 ```
 
 If you don't know your Billing Account ID, you can check it by running the following command:
@@ -60,7 +61,27 @@ location    = "ASIA"               # GCS region
 
 It is possible to manage resources for multiple competitions simultaneously by freely creating directories at the same level as `competition01` and defining separate variables for each directory.
 
-2. Run the following commands:
+2. Update the `terraform/environments/competition01/terraform.tf` file to change the tfstate file storage location to the GCS bucket created with the `make` command above. Change the prefix as needed.
+
+```hcl
+terraform {
+  required_version = ">= 1.6"
+
+  backend "gcs" {
+    bucket = "tf-state-bucket-name-titanic"  # <- GCS Bucket name
+    prefix = "terraform/state"
+  }
+
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 5.30"
+    }
+  }
+}
+```
+
+3. Run the following commands:
 
 ```shell
 cd terraform/environments/competition01
@@ -72,7 +93,7 @@ terraform apply
 terraform destroy
 ```
 
-3. Upon completion, the external IP address of the created instance will be displayed, so log in via SSH.
+4. Upon completion, the external IP address of the created instance will be displayed, so log in via SSH.
 
 ```shell
 # Use the private key that matches the public key specified in terraform.tfvars.
