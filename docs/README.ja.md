@@ -18,7 +18,8 @@ cd setup-gcp-project
 make setup-gcp-project \
     GCP_PROJECT_ID=<your_gcp_project_id> \
     BILLING_ACCOUNT_ID=<your_billing_account_id> \
-    KAGGLE_KEY=<your_kaggle_api_key>
+    KAGGLE_KEY=<your_kaggle_api_key> \
+    TF_STATE_BUCKET_NAME=<your_tf_state_bucket_name>
 ```
 
 Biiling Account ID がわからない場合は、以下のコマンドを実行して確認できます。
