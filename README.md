@@ -61,7 +61,27 @@ location    = "ASIA"               # GCS region
 
 It is possible to manage resources for multiple competitions simultaneously by freely creating directories at the same level as `competition01` and defining separate variables for each directory.
 
-2. Run the following commands:
+2. Update the `terraform/environments/competition01/terraform.tf` file to change the tfstate file storage location to the GCS bucket created with the `make` command above. Change the prefix as needed.
+
+```hcl
+terraform {
+  required_version = ">= 1.6"
+
+  backend "gcs" {
+    bucket = "tf-state-bucket-name-titanic"  # <- GCS Bucket name
+    prefix = "terraform/state"
+  }
+
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 5.30"
+    }
+  }
+}
+```
+
+3. Run the following commands:
 
 ```shell
 cd terraform/environments/competition01
@@ -73,7 +93,7 @@ terraform apply
 terraform destroy
 ```
 
-3. Upon completion, the external IP address of the created instance will be displayed, so log in via SSH.
+4. Upon completion, the external IP address of the created instance will be displayed, so log in via SSH.
 
 ```shell
 # Use the private key that matches the public key specified in terraform.tfvars.

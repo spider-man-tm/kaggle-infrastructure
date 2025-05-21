@@ -1,9 +1,3 @@
-provider "google" {
-  credentials = file("../../credential/terraform-key.json")
-  project     = var.project_id
-  region      = var.region
-}
-
 # Get the value from secret manager
 data "google_secret_manager_secret_version" "kaggle_key" {
   secret  = "kaggle-key"
