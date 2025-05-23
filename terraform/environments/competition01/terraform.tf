@@ -2,7 +2,7 @@ terraform {
   required_version = ">= 1.6"
 
   backend "gcs" {
-    bucket = "tf-state-bucket-name-titanic"
+    bucket = "tf-state-bucket-titanic"
     prefix = "terraform/state"
   }
 

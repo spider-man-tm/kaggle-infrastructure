@@ -70,6 +70,16 @@ variable "static_ip_name" {
 }
 
 # GCS
+variable "tf_state_bucket_name" {
+  description = "GCS Bucket Name for Terraform State"
+  type        = string
+}
+
+variable "digger_bucket_name" {
+  description = "GCS Bucket Name for Digger"
+  type        = string
+}
+
 variable "bucket_name" {
   description = "GCS Bucket Name"
   type        = string
@@ -77,5 +87,11 @@ variable "bucket_name" {
 
 variable "location" {
   description = "GCS Location"
+  type        = string
+}
+
+# GitHub Actions
+variable "github_repo_name" {
+  description = "GitHub Repository Name"
   type        = string
 }

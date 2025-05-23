@@ -29,12 +29,17 @@ module "network" {
 }
 
 module "iam" {
-  source     = "../../modules/iam"
-  project_id = var.project_id
+  source               = "../../modules/iam"
+  project_id           = var.project_id
+  tf_state_bucket_name = var.tf_state_bucket_name
+  digger_bucket_name   = module.gcs.digger_bucket_name
+  github_user_name     = var.github_user_name
+  github_repo_name     = var.github_repo_name
 }
 
 module "gcs" {
-  source      = "../../modules/gcs"
-  bucket_name = var.bucket_name
-  location    = var.location
+  source             = "../../modules/gcs"
+  digger_bucket_name = var.digger_bucket_name
+  bucket_name        = var.bucket_name
+  location           = var.location
 }
