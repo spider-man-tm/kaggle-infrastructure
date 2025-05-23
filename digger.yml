@@ -14,7 +14,7 @@ projects:
 
 workflows:
   # Competition01 環境
-  dev:
+  competition01:
     plan: {}
     apply: {}
     workflow_configuration:
@@ -23,7 +23,7 @@ workflows:
       on_commit_to_default: ["digger unlock"]
 
   # Competition02 環境
-  prod:
+  competition02:
     plan: {}
     apply: {}
     workflow_configuration:
