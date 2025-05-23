@@ -41,7 +41,7 @@ region     = "asia-northeast1"
 
 # GCE
 zone             = "asia-northeast1-c"
-instance_name    = "titanic-instance"
+instance_name    = "your-instance-name"
 machine_type     = "e2-micro"
 image            = "ubuntu-os-cloud/ubuntu-2004-lts"
 pub_key_path     = "~/.ssh/id_ed25519.pub" # Key path used for SSH login (local PC)
@@ -54,11 +54,12 @@ kaggle_username  = "spidermandance" # Your Kaggle username
 instance_count = 1
 
 # Network
-static_ip_name = "titanic-static-ip"
+static_ip_name = "your-static-ip-name" # Static IP name
 
 # GCS
-bucket_name = "titanic-bucket-xyz" # GCS bucket name
-location    = "ASIA"               # GCS region
+digger_lock_bucket_name = "your-digger-bucket-name" # for Digger lock
+bucket_name = "your-gcs-bucket-name" # GCS bucket name
+location    = "ASIA" # GCS region
 ```
 
 `competition01`と同じ階層に自由にディレクトリを作成しそれぞれ別の変数を定義することで、複数コンペティションのリソースを同時に管理することが可能です。
@@ -70,7 +71,7 @@ terraform {
   required_version = ">= 1.6"
 
   backend "gcs" {
-    bucket = "tf-state-bucket-name-titanic"  # <- GCS Bucket name
+    bucket = "your-state-bucket"  # <- GCS Bucket name
     prefix = "terraform/state"
   }
 
