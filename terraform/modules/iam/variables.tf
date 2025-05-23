@@ -3,8 +3,8 @@ variable "project_id" {
   type        = string
 }
 
-variable "digger_lock_bucket_name" {
-  description = "GCS Bucket Name for Digger Lock"
+variable "digger_bucket_name" {
+  description = "GCS Bucket Name for Digger"
   type        = string
 }
 

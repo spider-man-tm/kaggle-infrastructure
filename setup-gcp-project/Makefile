@@ -81,6 +81,12 @@ service-account/role:
 	gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID} \
 	--member=serviceAccount:terraform@${GCP_PROJECT_ID}.iam.gserviceaccount.com \
 	--role=roles/secretmanager.secretAccessor
+	gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID} \
+	  --member=serviceAccount:terraform@${GCP_PROJECT_ID}.iam.gserviceaccount.com \
+	  --role=roles/iam.workloadIdentityPoolAdmin
+	gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID} \
+	  --member=serviceAccount:terraform@${GCP_PROJECT_ID}.iam.gserviceaccount.com \
+	  --role=roles/iam.serviceAccountAdmin
 
 # Generate a service account key and save it for local Terraform use
 service-account/save-local:

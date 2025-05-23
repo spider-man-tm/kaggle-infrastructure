@@ -70,8 +70,8 @@ variable "static_ip_name" {
 }
 
 # GCS
-variable "digger_lock_bucket_name" {
-  description = "GCS Bucket Name for Digger Lock"
+variable "digger_bucket_name" {
+  description = "GCS Bucket Name for Digger"
   type        = string
 }
 

@@ -1,5 +1,5 @@
-resource "google_storage_bucket" "digger_lock" {
-  name     = var.digger_lock_bucket_name
+resource "google_storage_bucket" "digger_bucket" {
+  name     = var.digger_bucket_name
   location = var.location
 
   force_destroy               = false

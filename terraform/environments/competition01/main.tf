@@ -29,16 +29,16 @@ module "network" {
 }
 
 module "iam" {
-  source                  = "../../modules/iam"
-  project_id              = var.project_id
-  digger_lock_bucket_name = module.gcs.digger_lock_bucket_name
-  github_user_name        = var.github_user_name
-  github_repo_name        = var.github_repo_name
+  source             = "../../modules/iam"
+  project_id         = var.project_id
+  digger_bucket_name = module.gcs.digger_bucket_name
+  github_user_name   = var.github_user_name
+  github_repo_name   = var.github_repo_name
 }
 
 module "gcs" {
-  source                  = "../../modules/gcs"
-  digger_lock_bucket_name = var.digger_lock_bucket_name
-  bucket_name             = var.bucket_name
-  location                = var.location
+  source             = "../../modules/gcs"
+  digger_bucket_name = var.digger_bucket_name
+  bucket_name        = var.bucket_name
+  location           = var.location
 }

@@ -1,6 +1,6 @@
-output "digger_lock_bucket_name" {
-  description = "Name of the created GCS bucket for Digger lock"
-  value       = google_storage_bucket.digger_lock.name
+output "digger_bucket_name" {
+  description = "Name of the created GCS bucket for Digger"
+  value       = google_storage_bucket.digger_bucket.name
 }
 
 output "bucket_name" {

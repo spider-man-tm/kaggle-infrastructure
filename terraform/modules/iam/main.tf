@@ -23,21 +23,21 @@ resource "google_service_account" "digger_service_account" {
 
 # Allow GitHub Actions(Digger) to access storage
 resource "google_storage_bucket_iam_member" "digger_storage_access" {
-  bucket = var.digger_lock_bucket_name
+  bucket = var.digger_bucket_name
   role   = "roles/storage.objectAdmin"
   member = "serviceAccount:${google_service_account.digger_service_account.email}"
 }
 
 resource "google_iam_workload_identity_pool" "gha_pool" {
   workload_identity_pool_id = "gha-pool"
-  display_name              = "GitHub Actions Workload Identity Pool"
+  display_name              = "GHA Workload Identity Pool"
   description               = "Workload Identity Pool for GitHub Actions"
 }
 
 resource "google_iam_workload_identity_pool_provider" "gha_provider" {
   workload_identity_pool_id          = google_iam_workload_identity_pool.gha_pool.workload_identity_pool_id
   workload_identity_pool_provider_id = "gha-provider"
-  display_name                       = "GitHub Actions Provider"
+  display_name                       = "GHA Provider"
   description                        = "Provider for GitHub Actions"
 
   oidc { issuer_uri = "https://token.actions.githubusercontent.com" }
