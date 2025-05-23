@@ -58,13 +58,6 @@ jobs:
         run: |
           echo "TF_VERSION=$(cat .terraform-version)" >> "$GITHUB_OUTPUT"
 
-      - name: Inject tfvars
-        uses: DamianReeves/write-file-action@v1.3
-        with:
-          path: terraform/environments/competition01/secrets.auto.tfvars
-          contents: ${{ secrets.TFVARS }}
-          write-mode: overwrite
-
       - name: Google Auth (Workflow identity Federation)
         id: auth
         uses: google-github-actions/auth@v2
