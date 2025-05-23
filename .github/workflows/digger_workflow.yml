@@ -53,6 +53,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Read TF version
+        id: tfver
+        run: |
+          echo "TF_VERSION=$(cat .terraform-version)" >> "$GITHUB_OUTPUT"
+
+      - name: Inject tfvars
+        run: |
+          echo "${{ secrets.COMPETITION01_TFVARS_SECRET }}" \
+            > terraform/environments/competition01/secrets.auto.tfvars
+
       - name: Google Auth (Workflow identity Federation)
         id: auth
         uses: google-github-actions/auth@v2
@@ -68,7 +78,7 @@ jobs:
         with:
           no-backend: true
           disable-locking: true
-          terraform-version: $(head -n 1 .terraform-version)
+          terraform-version: ${{ steps.tfver.outputs.TF_VERSION }}
           google-lock-bucket: "gcp"
           upload-plan-destination-gcp-bucket: ${{ secrets.GCP_DIGGER_BUCKET }}
           setup-google-cloud: false
