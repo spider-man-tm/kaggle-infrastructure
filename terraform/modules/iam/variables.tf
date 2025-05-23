@@ -3,6 +3,11 @@ variable "project_id" {
   type        = string
 }
 
+variable "tf_state_bucket_name" {
+  description = "GCS Bucket Name for Terraform State"
+  type        = string
+}
+
 variable "digger_bucket_name" {
   description = "GCS Bucket Name for Digger"
   type        = string

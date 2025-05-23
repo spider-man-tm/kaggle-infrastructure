@@ -28,6 +28,12 @@ resource "google_storage_bucket_iam_member" "digger_storage_access" {
   member = "serviceAccount:${google_service_account.digger_service_account.email}"
 }
 
+resource "google_storage_bucket_iam_member" "tf_state_storage_access" {
+  bucket = var.tf_state_bucket_name
+  role   = "roles/storage.objectAdmin"
+  member = "serviceAccount:${google_service_account.digger_service_account.email}"
+}
+
 resource "google_iam_workload_identity_pool" "gha_pool" {
   workload_identity_pool_id = "gha-pool"
   display_name              = "GHA Workload Identity Pool"

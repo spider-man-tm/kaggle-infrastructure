@@ -70,6 +70,11 @@ variable "static_ip_name" {
 }
 
 # GCS
+variable "tf_state_bucket_name" {
+  description = "GCS Bucket Name for Terraform State"
+  type        = string
+}
+
 variable "digger_bucket_name" {
   description = "GCS Bucket Name for Digger"
   type        = string
