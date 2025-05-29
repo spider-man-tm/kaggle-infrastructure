@@ -10,27 +10,10 @@ projects:
     include_patterns:
       - terraform/environments/competition01/**
       - terraform/modules/**
-    
-  # Competition02 Environment
-  - name: competition02
-    dir: terraform/environments/competition02
-    workflow: competition02
-    include_patterns:
-      - terraform/environments/competition02/**
-      - terraform/modules/**
 
 workflows:
   # Competition01 Environment
   competition01:
-    plan: {}
-    apply: {}
-    workflow_configuration:
-      on_pull_request_pushed: ["digger plan"]
-      on_pull_request_closed: ["digger unlock"]
-      on_commit_to_default: ["digger apply"]
-
-  # Competition02 環境
-  competition02:
     plan: {}
     apply: {}
     workflow_configuration:
