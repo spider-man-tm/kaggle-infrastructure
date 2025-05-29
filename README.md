@@ -67,6 +67,26 @@ terraform destroy
 
 <br />
 
+## Terraform CI/CD
+
+You can run Terraform CI/CD using GitHub Actions instead of from a local environment.
+
+1. Create Environments in your GitHub Repository according to your environment.
+
+<img src="docs/img01.png" alt="GitHub Environments" width="400">
+
+2. Set the following values in the Secrets of the Environments:
+
+<img src="docs/img02.png" alt="GitHub Environments Secrets" width="400">
+
+3. When you create a PR, `terraform plan` will be automatically executed, and the results will be displayed in the PR comments.
+
+4. By commenting `digger plan` or `digger apply` in the PR comments, GitHub Actions will execute `terraform plan` or `terraform apply`.
+
+ref: https://github.com/spider-man-tm/kaggle-infrastructure/pull/10
+
+<br />
+
 ## Docker
 
 1. Clone this repository.
