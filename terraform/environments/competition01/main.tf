@@ -11,7 +11,6 @@ module "gce" {
   instance_count                 = var.instance_count
   machine_type                   = var.machine_type
   image                          = var.image
-  pub_key_path                   = var.pub_key_path
   network_name                   = var.network_name
   static_ip_addresses            = module.network.static_ip_addresses
   instance_service_account_email = module.iam.instance_service_account_email

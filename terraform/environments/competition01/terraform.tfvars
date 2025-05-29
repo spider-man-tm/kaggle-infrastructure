@@ -6,7 +6,6 @@ zone             = "asia-northeast1-c"
 instance_name    = "instance-kaggle-demo"
 machine_type     = "e2-micro"
 image            = "ubuntu-os-cloud/ubuntu-2004-lts"
-pub_key_path     = "~/.ssh/id_ed25519.pub" # Key path used for SSH login (local PC)
 network_name     = "default"               # VPC Network name
 github_email     = "makabe.takayoshi1117@gmail.com"
 github_user_name = "spider-man-tm"

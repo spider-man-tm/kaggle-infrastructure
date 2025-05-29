@@ -20,11 +20,6 @@ resource "google_compute_instance" "competition_instance" {
     }
   }
 
-  # You can access the instance using local ssh-keys
-  metadata = {
-    ssh-keys = "ubuntu:${file(var.pub_key_path)}"
-  }
-
   # This service account is used to access GCS bucket
   service_account {
     email  = var.instance_service_account_email
