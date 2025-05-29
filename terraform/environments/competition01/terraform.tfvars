@@ -12,7 +12,7 @@ github_user_name = "spider-man-tm"
 kaggle_username  = "spidermandance" # Your Kaggle username
 
 # GCE & Network
-instance_count = 1
+instance_count = 2
 
 # Network
 static_ip_name = "static-ip-kaggle-demo"
