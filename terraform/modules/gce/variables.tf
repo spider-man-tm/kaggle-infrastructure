@@ -24,11 +24,6 @@ variable "image" {
   type        = string
 }
 
-variable "pub_key_path" {
-  description = "Public Key Path"
-  type        = string
-}
-
 variable "network_name" {
   description = "VPC Network name"
   type        = string

@@ -65,23 +65,6 @@ terraform apply
 terraform destroy
 ```
 
-4. Upon completion, the external IP address of the created instance will be displayed, so log in via SSH.
-
-```shell
-# Use the private key that matches the public key specified in terraform.tfvars.
-ssh -i ~/.ssh/id_ed25519 ubuntu@<External IP Address>
-```
-
-By adding the following settings to your local `~/.ssh/config`, you can log into GCE with `ssh kaggle-titanic`. This also enables usage with VSCode's Remote SSH.
-
-```shell
-Host kaggle-titanic
-  HostName <External IP Address>
-  User ubuntu
-  Port 22
-  IdentityFile ${HOME}/.ssh/id_ed25519
-```
-
 <br />
 
 ## Docker
