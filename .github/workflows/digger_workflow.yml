@@ -12,16 +12,16 @@ concurrency:
   group: digger-run
 
 permissions:
-  contents: write      # required to merge PRs
-  actions: write       # required for plan persistence
-  id-token: write      # required for workload-identity-federation
+  contents: write # required to merge PRs
+  actions: write # required for plan persistence
+  id-token: write # required for workload-identity-federation
   pull-requests: write # required to post PR comments
-  issues: read         # required to check if PR number is an issue or not
-  statuses: write      # required to validate combined PR status
+  issues: read # required to check if PR number is an issue or not
+  statuses: write # required to validate combined PR status
 
 jobs:
   digger-competition01:
-    name : Digger - Competition 01
+    name: Digger - Competition 01
     if: |
       github.event_name == 'pull_request' ||
       (
@@ -31,11 +31,11 @@ jobs:
           startsWith(github.event.comment.body, 'digger plan')
         )
       )
-      
+
     # Using the environment secrets
     environment: competition01
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -43,7 +43,7 @@ jobs:
       - name: Read TF version
         id: tf-version
         run: echo "TF_VERSION=$(cat .terraform-version)" >> "$GITHUB_ENV"
-        
+
       - name: Google Auth (Workload Identity Federation)
         id: auth
         uses: google-github-actions/auth@v2
@@ -53,7 +53,7 @@ jobs:
           token_format: access_token
           create_credentials_file: true
           export_environment_variables: true
-          
+
       - name: Run Digger
         uses: diggerhq/digger@v0.6.100
         with:
@@ -61,10 +61,11 @@ jobs:
           disable-locking: true
           cache-dependencies: true
           terraform-version: ${{ steps.tf-version.outputs.TF_VERSION }}
-          google-lock-bucket: 'gcp'
+          google-lock-bucket: "gcp"
           upload-plan-destination-gcp-bucket: ${{ secrets.DIGGER_BUCKET }}
           setup-google-cloud: false
           setup-terraform: true
+          digger-filename: digger-competition01.yml
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
